@@ -12,8 +12,11 @@ jobs:
       run: |
         wget https://github.com/Roblox/luau/releases/latest/download/luau-ubuntu.zip
         unzip luau-ubuntu.zip
-        chmod a+x luau
-    - name: make coverage
+        chmod a+x luau luau-analyze
+    - name: analyze
+      run: |
+        ./luau-analyze .
+    - name: test
       run: |
         ./luau --coverage test.lua
     - name: upload coverage
@@ -21,4 +24,3 @@ jobs:
       with:
         path-to-lcov: ./coverage.out
         github-token: ${{ secrets.GITHUB_TOKEN }}
- 
