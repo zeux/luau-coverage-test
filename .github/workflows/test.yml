@@ -12,6 +12,7 @@ jobs:
       run: |
         wget https://github.com/Roblox/luau/releases/download/0.514/luau-ubuntu.zip
         unzip luau-ubuntu.zip
+        chmod a+x luau
     - name: make coverage
       run: |
         ./luau --coverage test.lua
