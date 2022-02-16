@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: install
       run: |
-        wget https://github.com/Roblox/luau/releases/download/0.514/luau-ubuntu.zip
+        wget https://github.com/Roblox/luau/releases/latest/download/luau-ubuntu.zip
         unzip luau-ubuntu.zip
         chmod a+x luau
     - name: make coverage
