@@ -1,0 +1,20 @@
+name: test
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install
+      run: |
+        wget https://github.com/Roblox/luau/releases/download/0.514/luau-ubuntu.zip
+        unzip luau-ubuntu.zip
+    - name: make coverage
+      run: |
+        ./luau --coverage test.lua
+    - name: upload coverage
+      uses: coverallsapp/github-action@master
+      with:
+        path-to-lcov: ./coverage.out
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+ 
